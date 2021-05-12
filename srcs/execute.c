@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 03:02:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 03:15:45 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:02:21 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void		select_swap(t_checker *checker, char *cmd)
 void		select_push(t_checker *checker, char *cmd)
 {
 	if (!ft_strcmp(cmd, "pa"))
-		push_stack(checker, &checker->stacks->b, &checker->stacks->a);
+		push_stack(&checker->stacks->b, &checker->stacks->a);
 	else if (!ft_strcmp(cmd, "pb"))
-		push_stack(checker, &checker->stacks->a, &checker->stacks->b);
+		push_stack(&checker->stacks->a, &checker->stacks->b);
 }
 
 void		select_rotate(t_checker *checker, char *cmd)

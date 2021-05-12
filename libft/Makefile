@@ -6,7 +6,7 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/17 13:18:59 by bahaas            #+#    #+#              #
-#    Updated: 2021/05/12 01:12:48 by bahaas           ###   ########.fr        #
+#    Updated: 2021/05/12 19:22:56 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,27 +33,30 @@ SRCS		= ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_atoll.c ft_memalloc.c ft_strdel.c ft_strnew.c \
 				ft_free_strs.c
 
-CC			= gcc
+CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 OBJS		= ${SRCS:.c=.o}
 
 .c.o:
-			@printf "\033[0;33mGenerating libft objects... %-33.33s\r" $@
+			@printf "\033[34m[LIBFT]\033[0m Generating libft objects... %-33.33s\r" $@
 			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 			@ar rc ${NAME} ${OBJS}
 			@ranlib ${NAME}
+			@echo "\033[34m\n[LIBFT]\033[0m Building libft : \033[32mOK\033[0m"
 
-all:		${NAME}
+all:		${NAME} | silent
 
 clean:
-			${RM} ${OBJS} ${OBJS_BONUS} ${OBJS_GNL}
+			@${RM} ${OBJS} ${OBJS_BONUS} ${OBJS_GNL}
+			@echo "\033[34m[LIBFT]\033[0m Delete .o files : \033[32mOK\033[0m"
 
 fclean:		clean
-			${RM} ${NAME}
+			@${RM} ${NAME}
+			@echo "\033[34m[LIBFT]\033[0m Delete .a file : \033[32mOK\033[0m"
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re silent

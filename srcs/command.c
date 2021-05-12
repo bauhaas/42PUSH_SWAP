@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:31:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 03:16:11 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 18:37:49 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ void	create_cmd(t_checker *checker, char *line)
 	}
 }
 
-void	save_user_cmd(t_checker *checker)
+int		save_user_cmd(t_checker *checker)
 {
 	char *line;
 
-	printf("WAIT FOR COMMANDS...\n");
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
@@ -59,12 +58,14 @@ void	save_user_cmd(t_checker *checker)
 			create_cmd(checker, line);
 		else
 		{
-			printf("Error unknown cmd\n");
-			break ;
+			free(line);
+			checker->head_cmd = checker->cmd;
+			return (0);
 		}
 		free(line);
 		line = NULL;
 	}
 	free(line);
 	checker->head_cmd = checker->cmd;
+	return (1);
 }

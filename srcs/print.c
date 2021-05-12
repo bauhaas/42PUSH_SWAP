@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:28:36 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 03:08:57 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:15:44 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_valid_char_arr_format(char **arr)
 	}
 }
 
-void print_av(int ac, char **av)
+void	print_av(int ac, char **av)
 {
 	int i;
 
@@ -41,13 +41,13 @@ void print_av(int ac, char **av)
 
 void	print_cmd_lst(t_checker *checker)
 {
-	int i;
-	t_list *tmp;
+	t_list	*tmp;
+	int		i;
 
-	tmp = checker->cmd;  
-	i = 0; 
-	while (tmp) 
-	{ 
+	tmp = checker->cmd;
+	i = 0;
+	while (tmp)
+	{
 		printf("cmd[%d] : %s\n", i, (char *)tmp->content);
 		tmp = tmp->next;
 		i++;
@@ -56,8 +56,8 @@ void	print_cmd_lst(t_checker *checker)
 
 void	print_stack(t_stack *stack)
 {
-	t_stack *tmp;
-	int i;
+	t_stack	*tmp;
+	int		i;
 
 	tmp = stack;
 	i = 0;

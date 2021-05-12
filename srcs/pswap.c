@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_split.c                                    :+:      :+:    :+:   */
+/*   pswap.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 01:10:43 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 01:12:18 by bahaas           ###   ########.fr       */
+/*   Created: 2021/05/12 19:15:04 by bahaas            #+#    #+#             */
+/*   Updated: 2021/05/12 19:26:58 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void			ft_free_strs(char ***strs)
+int main(int ac, char **av)
 {
-	int i;
+	(void)ac;
+	(void)av;
 
-	i = -1;
-	while ((*strs)[++i])
-	{
-		free((*strs)[i]);
-		(*strs)[i] = NULL;
-	}
-	free(*strs);
-	*strs = NULL;
+	return (0);
 }

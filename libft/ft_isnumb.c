@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 17:58:48 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/11 14:30:21 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:37:30 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int		ft_isnumb(char *num)
 	int i;
 
 	i = 0;
-	if(num[i] != '\0')
+	if (num[i] != '\0')
 	{
-		while(num[i])
+		while (num[i])
 		{
 			if (num[i] == '+' || num[i] == '-')
 				i++;
 			else
-				break;
+				break ;
 		}
 		while (num[i])
 		{

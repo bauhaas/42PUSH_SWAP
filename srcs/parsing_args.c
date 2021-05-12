@@ -6,19 +6,29 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:15:43 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 03:17:31 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 17:58:53 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
+
+int		*free_and_ret(int **arr)
+{
+	free(*arr);
+	*arr = NULL;
+	return (*arr);
+}
 
 int		ft_strarr_len(char **arr)
 {
 	int i;
 
 	i = 0;
-	while (arr[i])
-		i++;
+	if (arr)
+	{
+		while (arr[i])
+			i++;
+	}
 	return (i);
 }
 
@@ -38,31 +48,10 @@ int		*str_array_to_int_array(char **src, int size)
 			if (new_element >= INT_MIN && new_element <= INT_MAX)
 				arr[i] = new_element;
 			else
-				break ;
+				return (free_and_ret(&arr));
 		}
 		else
-			break ;
+			return (free_and_ret(&arr));
 	}
 	return (arr);
-}
-
-int		has_duplicates(int *arr, int size)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] == arr[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }

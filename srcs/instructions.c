@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:08:46 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 03:05:44 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:02:03 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,16 @@ void	swap_stack(int *i, int *j)
 	*j = tmp;
 }
 
-t_stack	*ft_stacknew(int content)
-{
-	t_stack *new_list;
-
-	new_list = malloc(sizeof(t_stack) * 1);
-	if (!new_list)
-		return (NULL);
-	if (new_list)
-	{
-		new_list->i = content;
-		new_list->next = NULL;
-	}
-	return (new_list);
-}
-
-void	ft_stackadd_front(t_stack **alst, t_stack *new)
-{
-	new->next = *alst;
-	*alst = new;
-}
-
-void	push_stack(t_checker *checker, t_stack **from, t_stack **to)
+void	push_stack(t_stack **from, t_stack **to)
 {
 	t_stack *new;
 	t_stack *tmp;
+
 	if (!from || !(*from))
 		return ;
-	new = ft_stacknew((*from)->i);
-	ft_stackadd_front(to, new);
+	new = new_stack((*from)->i);
+	new->next = *to;
+	*to = new;
 	tmp = (*from)->next;
 	free(*from);
 	(*from) = tmp;
@@ -76,6 +57,7 @@ void	rotate_stack(t_stack **stack)
 int		size_stack(t_stack *stack)
 {
 	int i;
+
 	i = 0;
 	while (stack)
 	{
@@ -87,10 +69,10 @@ int		size_stack(t_stack *stack)
 
 void	reverse_rotate_stack(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *tmp;
-	int size;
-	int i;
+	t_stack	*current;
+	t_stack	*tmp;
+	int		size;
+	int		i;
 
 	current = *stack;
 	i = 1;

@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 11:28:42 by bahaas            #+#    #+#             */
-/*   Updated: 2021/03/05 16:02:11 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:37:42 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long long	ft_atoll(const char *nptr)
 {
-	int sign;
-	long long res;
-	int i;
+	int			sign;
+	long long	res;
+	int			i;
 
 	i = 0;
 	res = 0;
