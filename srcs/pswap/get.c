@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:23:38 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:41:58 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:51:25 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** If we are on the last block to sort, then we return max value.
 */
 
-int	getpivot(t_stacks stacks, int index, int division, int divide_size)
+int	getpivot(t_stacks stacks, int index, int division)
 {
 	int	max;
 	int	min;

@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:23:48 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:24:47 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:51:35 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	sort(t_checker *checker, t_stacks *stacks, int divide_size);
 ** get.c
 */
 
-int		getpivot(t_stacks stacks, int index, int division, int divide_size);
+int		getpivot(t_stacks stacks, int index, int division);
 int		getlen(t_stack *item);
 int		getmin(t_stack *item);
 int		getmax(t_stack *item);

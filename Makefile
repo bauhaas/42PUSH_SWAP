@@ -6,7 +6,7 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 15:07:09 by bahaas            #+#    #+#              #
-#    Updated: 2021/05/25 02:41:25 by bahaas           ###   ########.fr        #
+#    Updated: 2021/05/25 02:50:23 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,30 +18,29 @@ CHECKER_SRCS	= srcs/checker/checker.c		\
 				srcs/checker/execute.c			\
 				srcs/common/instructions.c		\
 				srcs/common/parsing_args.c		\
-				srcs/common/print.c			\
+				srcs/common/print.c				\
 				srcs/common/init.c				\
 				srcs/common/command.c			\
 				srcs/common/free_checker.c		\
-				srcs/common/utils.c			\
-				srcs/common/init_stack.c	\
+				srcs/common/utils.c				\
+				srcs/common/init_stack.c		\
 
-PSWAP_SRCS		= srcs/pswap/pswap.c 			\
-				srcs/pswap/select_algo.c		\
-				srcs/pswap/three_and_five_algo.c		\
-				srcs/pswap/get.c				\
-				srcs/common/utils.c			\
-				srcs/common/init.c				\
-				srcs/common/print.c			\
-				srcs/common/free_checker.c		\
-				srcs/common/parsing_args.c		\
-				srcs/common/instructions.c		\
-				srcs/common/command.c	\
-				srcs/common/init_stack.c	\
-
+PSWAP_SRCS		= srcs/pswap/pswap.c 				\
+				srcs/pswap/select_algo.c			\
+				srcs/pswap/three_and_five_algo.c	\
+				srcs/pswap/get.c					\
+				srcs/common/utils.c					\
+				srcs/common/init.c					\
+				srcs/common/print.c					\
+				srcs/common/free_checker.c			\
+				srcs/common/parsing_args.c			\
+				srcs/common/instructions.c			\
+				srcs/common/command.c				\
+				srcs/common/init_stack.c			\
+	
 CC				= clang
 
-#CFLAGS			= -Wextra -Werror -Wall -g
-CFLAGS			= -g
+CFLAGS			= -Wextra -Werror -Wall -g
 
 HEADER			= -I /includes
 
