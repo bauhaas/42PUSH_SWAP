@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 13:24:58 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/11 17:14:25 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:28:09 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 #include "get_next_line.h"
 
 char			*ft_strnew(size_t size)
@@ -73,48 +73,3 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	free((char *)s1);
 	return (dest);
 }
-
-/*
-int		ft_check_buffer_nl(char *buffer)
-{
-	int i;
-
-	i = 0;
-	while (buffer[i])
-	{
-		if (buffer[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-char	*ft_strjoin(char *s1, char const *s2)
-{
-	char	*joined;
-	size_t	size;
-	int		i;
-
-	i = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	while (s1 && s1[i])
-		i++;
-	size = i;
-	i = 0;
-	while (s2 && s2[i])
-		i++;
-	size += i;
-	joined = malloc(sizeof(char) * (size + 1));
-	if (joined == NULL)
-		return (NULL);
-	i = 0;
-	while (s1 && s1[i])
-		*joined++ = s1[i++];
-	while (s2 && *s2)
-		*joined++ = *s2++;
-	*joined = 0;
-	free(s1);
-	return (joined - size);
-}
-*/

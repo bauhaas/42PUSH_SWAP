@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:50:28 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 16:26:23 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:42:17 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 void			free_cmd(t_list *cmd)
 {
@@ -57,6 +57,7 @@ void			free_checker(t_checker *checker)
 {
 	ft_free_strs(&checker->expanded_params);
 	ft_lstclear(&checker->head_cmd, &free_list);
+	ft_lstclear(&checker->cmd, &free_list);
 	free(checker->arr);
 	free_stack(checker->stacks->a);
 	free_stack(checker->stacks->b);

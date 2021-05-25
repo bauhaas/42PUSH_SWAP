@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 10:46:26 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 01:11:49 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:27:28 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int				ft_isnumb(char *num);
 long long		ft_atoll(const char *nptr);
 void			ft_strdel(char **str);
 char			*strjoin_gnl(char const *s1, char const *s2);
-char		*ft_strnew(size_t size);
-void		ft_free_strs(char ***strs);
+char			*ft_strnew(size_t size);
+void			ft_free_strs(char ***strs);
 
 #endif

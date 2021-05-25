@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:28:36 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 16:15:44 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:42:39 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 void	print_valid_char_arr_format(char **arr)
 {
@@ -39,16 +39,16 @@ void	print_av(int ac, char **av)
 	printf("\n");
 }
 
-void	print_cmd_lst(t_checker *checker)
+void	print_cmd_lst(t_list *lst)
 {
 	t_list	*tmp;
 	int		i;
 
-	tmp = checker->cmd;
+	tmp = lst;
 	i = 0;
 	while (tmp)
 	{
-		printf("cmd[%d] : %s\n", i, (char *)tmp->content);
+		printf("%s\n", (char *)tmp->content);
 		tmp = tmp->next;
 		i++;
 	}
@@ -65,7 +65,11 @@ void	print_stack(t_stack *stack)
 	{
 		while (tmp)
 		{
-			printf("stack[%d] : %d\n", i, tmp->i);
+			printf("stack[%d] : %d", i, tmp->i);
+			if (tmp->next)
+				printf("    stack[%d]->next : %d\n", i, tmp->next->i);
+			else
+				printf("\n");
 			tmp = tmp->next;
 			i++;
 		}

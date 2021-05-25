@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:22:57 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 17:53:15 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:42:23 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
 static void	init_expanded_params(t_checker *checker, int size, char **tmp_split)
 {

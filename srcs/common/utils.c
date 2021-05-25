@@ -6,11 +6,28 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:58:33 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 18:02:49 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 02:42:45 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
+
+int			stack_size(t_stack *head)
+{
+	int		i;
+	t_stack	*list;
+
+	if (!head)
+		return (0);
+	list = head;
+	i = 0;
+	while (list)
+	{
+		i++;
+		list = list->next;
+	}
+	return (i);
+}
 
 int			is_error(void)
 {

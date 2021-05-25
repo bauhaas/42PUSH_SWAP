@@ -6,13 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:08:46 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 19:02:03 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/25 01:30:51 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
-void	swap_stack(int *i, int *j)
+void	swap_stack(t_checker *checker, int *i, int *j, char *cmd)
 {
 	int tmp;
 
@@ -21,9 +21,11 @@ void	swap_stack(int *i, int *j)
 	tmp = *i;
 	*i = *j;
 	*j = tmp;
+	if (cmd)
+		create_cmd(&checker->cmd, cmd);
 }
 
-void	push_stack(t_stack **from, t_stack **to)
+void	push_stack(t_checker *checker, t_stack **from, t_stack **to, char *cmd)
 {
 	t_stack *new;
 	t_stack *tmp;
@@ -36,9 +38,11 @@ void	push_stack(t_stack **from, t_stack **to)
 	tmp = (*from)->next;
 	free(*from);
 	(*from) = tmp;
+	if (cmd)
+		create_cmd(&checker->cmd, cmd);
 }
 
-void	rotate_stack(t_stack **stack)
+void	rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
 {
 	t_stack *current;
 	t_stack *tmp;
@@ -52,22 +56,11 @@ void	rotate_stack(t_stack **stack)
 	current->next = *stack;
 	*stack = tmp->next;
 	tmp->next = NULL;
+	if (cmd)
+		create_cmd(&checker->cmd, cmd);
 }
 
-int		size_stack(t_stack *stack)
-{
-	int i;
-
-	i = 0;
-	while (stack)
-	{
-		i++;
-		stack = stack->next;
-	}
-	return (i);
-}
-
-void	reverse_rotate_stack(t_stack **stack)
+void	reverse_rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -76,7 +69,7 @@ void	reverse_rotate_stack(t_stack **stack)
 
 	current = *stack;
 	i = 1;
-	size = size_stack(*stack);
+	size = stack_size(*stack);
 	while (i < size - 1 && current != NULL)
 	{
 		current = current->next;
@@ -90,4 +83,6 @@ void	reverse_rotate_stack(t_stack **stack)
 	current->next = *stack;
 	*stack = tmp->next;
 	tmp->next = NULL;
+	if (cmd)
+		create_cmd(&checker->cmd, cmd);
 }
