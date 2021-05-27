@@ -6,40 +6,36 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:20:19 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:43:03 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 18:21:02 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 #include "../../libft/libft.h"
 
 int			main(int ac, char **av)
 {
-	t_checker	checker;
+	t_ps	ps;
 
 	if (ac <= 1)
 		return (0);
-	init_checker(&checker, av);
-	if (has_duplicates(checker.arr, checker.tot_params) || checker.arr == NULL)
+	init_ps(&ps, av);
+	if (has_duplicates(ps.arr, ps.tot_params) || ps.arr == NULL)
 	{
-		printf("duplicate ou arr int empty\n");
-		free_checker(&checker);
+		free_ps(&ps);
 		return (is_error());
 	}
-	if (!save_user_cmd(&checker))
+	if (!save_user_cmd(&ps))
 	{
-		printf("save user cmd return false\n");
-		free_checker(&checker);
+		free_ps(&ps);
 		return (is_error());
 	}
-	set_stack_a(&checker, checker.arr, checker.tot_params);
-	print_stack(checker.stacks->a);
-	execute(&checker);
-	if (is_empty(checker.stacks->b) && is_sort(checker.stacks->a))
+	set_stack_a(&ps, ps.arr, ps.tot_params);
+	execute(&ps);
+	if (is_empty(ps.stacks->b) && is_sort(ps.stacks->a))
 		printf("OK\n");
 	else
 		printf("KO\n");
-	print_stack(checker.stacks->a);
-	free_checker(&checker);
+	free_ps(&ps);
 	return (0);
 }

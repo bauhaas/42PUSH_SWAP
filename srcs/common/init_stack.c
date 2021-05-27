@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
 t_stack		*new_stack(int value)
 {
@@ -50,7 +50,7 @@ void		fill_stack_a(t_stack **stack, int value)
 	}
 }
 
-void		set_stack_a(t_checker *checker, int *arr, int size)
+void		set_stack_a(t_ps *ps, int *arr, int size)
 {
 	t_stack	*new;
 	int		i;
@@ -61,7 +61,7 @@ void		set_stack_a(t_checker *checker, int *arr, int size)
 	{
 		while (arr && i < size)
 		{
-			fill_stack_a(&checker->stacks->a, arr[i]);
+			fill_stack_a(&ps->stacks->a, arr[i]);
 			i++;
 		}
 	}

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
-void	swap_stack(t_checker *checker, int *i, int *j, char *cmd)
+void	swap_stack(t_ps *ps, int *i, int *j, char *cmd)
 {
 	int tmp;
 
@@ -22,10 +22,10 @@ void	swap_stack(t_checker *checker, int *i, int *j, char *cmd)
 	*i = *j;
 	*j = tmp;
 	if (cmd)
-		create_cmd(&checker->cmd, cmd);
+		create_cmd(&ps->cmd, cmd);
 }
 
-void	push_stack(t_checker *checker, t_stack **from, t_stack **to, char *cmd)
+void	push_stack(t_ps *ps, t_stack **from, t_stack **to, char *cmd)
 {
 	t_stack *new;
 	t_stack *tmp;
@@ -39,10 +39,10 @@ void	push_stack(t_checker *checker, t_stack **from, t_stack **to, char *cmd)
 	free(*from);
 	(*from) = tmp;
 	if (cmd)
-		create_cmd(&checker->cmd, cmd);
+		create_cmd(&ps->cmd, cmd);
 }
 
-void	rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
+void	rotate_stack(t_ps *ps, t_stack **stack, char *cmd)
 {
 	t_stack *current;
 	t_stack *tmp;
@@ -57,10 +57,10 @@ void	rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
 	*stack = tmp->next;
 	tmp->next = NULL;
 	if (cmd)
-		create_cmd(&checker->cmd, cmd);
+		create_cmd(&ps->cmd, cmd);
 }
 
-void	reverse_rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
+void	reverse_rotate_stack(t_ps *ps, t_stack **stack, char *cmd)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -84,5 +84,5 @@ void	reverse_rotate_stack(t_checker *checker, t_stack **stack, char *cmd)
 	*stack = tmp->next;
 	tmp->next = NULL;
 	if (cmd)
-		create_cmd(&checker->cmd, cmd);
+		create_cmd(&ps->cmd, cmd);
 }

@@ -6,26 +6,26 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:22:57 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:42:23 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:27:56 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
-static void	init_expanded_params(t_checker *checker, int size, char **tmp_split)
+static void	init_expanded_params(t_ps *ps, int size, char **tmp_split)
 {
 	int	j;
 
 	j = -1;
-	checker->expanded_params = malloc(sizeof(char *) * (size + 1));
-	if (!checker->expanded_params)
+	ps->expanded_params = malloc(sizeof(char *) * (size + 1));
+	if (!ps->expanded_params)
 		return ;
 	while (++j < size)
-		checker->expanded_params[j] = ft_strdup(tmp_split[j]);
-	checker->expanded_params[j] = NULL;
+		ps->expanded_params[j] = ft_strdup(tmp_split[j]);
+	ps->expanded_params[j] = NULL;
 }
 
-static void	parse_parameters(t_checker *checker, char **av)
+static void	parse_parameters(t_ps *ps, char **av, int split_i)
 {
 	char	**split_params;
 	int		size;
@@ -38,30 +38,33 @@ static void	parse_parameters(t_checker *checker, char **av)
 	{
 		split_params = ft_split(av[i], ' ');
 		size = ft_strarr_len(split_params);
-		if (!checker->expanded_params)
-			init_expanded_params(checker, size, split_params);
-		else if (checker->expanded_params)
+		if (!ps->expanded_params)
+			init_expanded_params(ps, size, split_params);
+		else if (ps->expanded_params)
 		{
-			j = ft_strarr_len(checker->expanded_params);
-			checker->expanded_params = realloc(checker->expanded_params,
-					sizeof(char *) * (j + 2));
-			checker->expanded_params[j] = ft_strdup(av[i]);
-			checker->expanded_params[j + 1] = NULL;
+			j = ft_strarr_len(ps->expanded_params);
+			ps->expanded_params = realloc(ps->expanded_params,
+					sizeof(char *) * (j + size + 1));
+			split_i = -1;
+			while (++split_i < size)
+				ps->expanded_params[j++] = ft_strdup(split_params[split_i]);
+			ps->expanded_params[j] = NULL;
 		}
 		ft_free_strs(&split_params);
 	}
 }
 
-void		init_checker(t_checker *checker, char **av)
+void		init_ps(t_ps *ps, char **av)
 {
-	checker->stacks = malloc(sizeof(t_stacks));
-	checker->stacks->a = NULL;
-	checker->stacks->b = NULL;
-	checker->expanded_params = NULL;
-	parse_parameters(checker, av);
-	checker->tot_params = ft_strarr_len(checker->expanded_params);
-	checker->arr = str_array_to_int_array(checker->expanded_params,
-			checker->tot_params);
-	checker->head_cmd = NULL;
-	checker->cmd = NULL;
+	ps->stacks = malloc(sizeof(t_stacks));
+	ps->stacks->a = NULL;
+	ps->stacks->b = NULL;
+	ps->expanded_params = NULL;
+	parse_parameters(ps, av, -1);
+	ps->tot_params = ft_strarr_len(ps->expanded_params);
+	ps->arr = str_array_to_int_array(ps->expanded_params,
+			ps->tot_params);
+	print_valid_char_arr_format(ps->expanded_params);
+	ps->head_cmd = NULL;
+	ps->cmd = NULL;
 }

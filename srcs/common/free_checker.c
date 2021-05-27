@@ -6,31 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:50:28 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:42:17 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 16:36:55 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
-void			free_cmd(t_list *cmd)
-{
-	t_list		*ptr_list;
-	t_list		*ptr_next;
-
-	ptr_list = cmd;
-	while (ptr_list)
-	{
-		ptr_next = ptr_list->next;
-		if (ptr_list->content)
-			ft_strdel(ptr_list->content);
-		free(ptr_list->content);
-		free(ptr_list);
-		ptr_list = ptr_next;
-	}
-	cmd = NULL;
-}
-
-void			free_list(void *content)
+static void			free_list(void *content)
 {
 	char	*e;
 
@@ -38,7 +20,7 @@ void			free_list(void *content)
 	ft_strdel(&e);
 }
 
-void			free_stack(t_stack *stack)
+static void			free_stack(t_stack *stack)
 {
 	t_stack		*ptr_list;
 	t_stack		*ptr_next;
@@ -53,14 +35,14 @@ void			free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-void			free_checker(t_checker *checker)
+void				free_ps(t_ps *ps)
 {
-	ft_free_strs(&checker->expanded_params);
-	ft_lstclear(&checker->head_cmd, &free_list);
-	ft_lstclear(&checker->cmd, &free_list);
-	free(checker->arr);
-	free_stack(checker->stacks->a);
-	free_stack(checker->stacks->b);
-	free(checker->stacks);
-	checker->stacks = NULL;
+	ft_free_strs(&ps->expanded_params);
+	ft_lstclear(&ps->head_cmd, &free_list);
+	ft_lstclear(&ps->cmd, &free_list);
+	free(ps->arr);
+	free_stack(ps->stacks->a);
+	free_stack(ps->stacks->b);
+	free(ps->stacks);
+	ps->stacks = NULL;
 }

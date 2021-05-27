@@ -6,13 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:31:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:09:07 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 16:34:10 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
-int		is_valid_cmd(char *line)
+static int		is_valid_cmd(char *line)
 {
 	if (!ft_strcmp(line, "sa") ||
 			!ft_strcmp(line, "sb") ||
@@ -29,7 +29,7 @@ int		is_valid_cmd(char *line)
 	return (0);
 }
 
-void	create_cmd(t_list **lst, char *line)
+void			create_cmd(t_list **lst, char *line)
 {
 	t_list *new;
 	t_list *tmp;
@@ -47,7 +47,7 @@ void	create_cmd(t_list **lst, char *line)
 	}
 }
 
-int		save_user_cmd(t_checker *checker)
+int				save_user_cmd(t_ps *ps)
 {
 	char *line;
 
@@ -55,22 +55,22 @@ int		save_user_cmd(t_checker *checker)
 	while (get_next_line(0, &line) > 0)
 	{
 		if (is_valid_cmd(line))
-			create_cmd(&checker->cmd, line);
+			create_cmd(&ps->cmd, line);
 		else
 		{
 			free(line);
-			checker->head_cmd = checker->cmd;
+			ps->head_cmd = ps->cmd;
 			return (0);
 		}
 		free(line);
 		line = NULL;
 	}
 	free(line);
-	checker->head_cmd = checker->cmd;
+	ps->head_cmd = ps->cmd;
 	return (1);
 }
 
-int		is_cmd_linked(char *cmd, t_list *next, char *b, char *a)
+static int		is_cmd_linked(char *cmd, t_list *next, char *b, char *a)
 {
 	if ((!ft_strcmp(cmd, a) && (next && !ft_strcmp(next->content, b))) ||
 	((!ft_strcmp(cmd, b) && (next && !ft_strcmp(next->content, a)))))
@@ -78,30 +78,30 @@ int		is_cmd_linked(char *cmd, t_list *next, char *b, char *a)
 	return (0);
 }
 
-void	optimize_cmd_lst(t_checker *checker)
+void			optimize_cmd_lst(t_ps *ps)
 {
 	t_list *old;
 
-	old = checker->cmd;
+	old = ps->cmd;
 	while (old)
 	{
 		if (is_cmd_linked(old->content, old->next, "sa", "sb"))
 		{
-			create_cmd(&checker->head_cmd, "ss");
+			create_cmd(&ps->head_cmd, "ss");
 			old = old->next;
 		}
 		else if (is_cmd_linked(old->content, old->next, "ra", "rb"))
 		{
-			create_cmd(&checker->head_cmd, "rr");
+			create_cmd(&ps->head_cmd, "rr");
 			old = old->next;
 		}
 		else if (is_cmd_linked(old->content, old->next, "rra", "rrb"))
 		{
-			create_cmd(&checker->head_cmd, "rrr");
+			create_cmd(&ps->head_cmd, "rrr");
 			old = old->next;
 		}
 		else
-			create_cmd(&checker->head_cmd, (char *)old->content);
+			create_cmd(&ps->head_cmd, (char *)old->content);
 		old = old->next;
 	}
 }

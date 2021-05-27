@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:58:33 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:42:45 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 16:04:57 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
 int			stack_size(t_stack *head)
 {
@@ -38,11 +38,7 @@ int			is_error(void)
 int			is_empty(t_stack *stack)
 {
 	if (!stack)
-	{
-		printf("B is empty :)\n");
 		return (1);
-	}
-	printf("B isn't empty :(\n");
 	return (0);
 }
 
@@ -56,13 +52,9 @@ int			is_sort(t_stack *stack)
 	while (tmp)
 	{
 		if (tmp->next && (tmp->i > tmp->next->i))
-		{
-			printf("A isn't sorted :(\n");
 			return (0);
-		}
 		tmp = tmp->next;
 	}
-	printf("A is sorted :)\n");
 	return (1);
 }
 

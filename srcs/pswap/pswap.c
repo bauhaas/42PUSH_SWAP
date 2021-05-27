@@ -6,62 +6,59 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 19:15:04 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:25:08 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 18:49:36 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
 /*
 ** Select the most efficient algorithm based on the initial size of stack A.
 */
 
-void		select_algo(t_checker *checker)
+static void		select_algo(t_ps *ps)
 {
 	int size;
 
-	size = stack_size(checker->stacks->a);
-	checker->cmd_nb = 0;
+	size = stack_size(ps->stacks->a);
 	if (size == 1)
 		return ;
-	else if (size == 3)
-		two_elements(checker);
-	else if (size <= 3 + 1)
-		three_elements(checker);
-	else if (size <= 5 + 1)
-		five_elements(checker);
-	else if (size <= 100 + 1)
-		sort(checker, checker->stacks, 30);
-	else if (size <= 500 + 1)
-		sort(checker, checker->stacks, 70);
+	else if (size == 2)
+		two_elements(ps);
+	else if (size <= 3)
+		three_elements(ps);
+	else if (size <= 5)
+		five_elements(ps);
+	else if (size <= 100)
+		sort(ps, ps->stacks, 30);
+	else if (size <= 500)
+		sort(ps, ps->stacks, 70);
 	else
 		return ;
 }
 
-int			main(int ac, char **av)
+int				main(int ac, char **av)
 {
-	t_checker ps;
+	t_ps ps;
 
 	ps.cmd = NULL;
 	if (ac == 1)
 		return (0);
-	init_checker(&ps, av);
+	init_ps(&ps, av);
 	if (has_duplicates(ps.arr, ps.tot_params) || ps.arr == NULL)
 	{
-		free_checker(&ps);
+		free_ps(&ps);
 		return (is_error());
 	}
 	set_stack_a(&ps, ps.arr, ps.tot_params);
+	if (is_sort(ps.stacks->a))
+	{
+		free_ps(&ps);
+		return (0);
+	}
 	select_algo(&ps);
-	//printf("End stack A\n");
-	//print_stack(ps.stacks->a);
-	//printf("End stack B\n");
-	//print_stack(ps.stacks->b);
-//	printf("TOTAL CMD NB : %d\n", ps.cmd_nb);
-//	printf("LIST OF CMD\n");
-//	print_cmd_lst(ps.cmd);
 	optimize_cmd_lst(&ps);
 	print_cmd_lst(ps.head_cmd);
-	free_checker(&ps);
+	free_ps(&ps);
 	return (0);
 }

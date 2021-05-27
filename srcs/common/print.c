@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:28:36 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:42:39 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 18:35:45 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
 void	print_valid_char_arr_format(char **arr)
 {
@@ -76,10 +76,10 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-void	print_after_exec(t_checker *checker)
+void	print_after_exec(t_ps *ps)
 {
 	printf("\nA STCK AFTER EXEC\n");
-	print_stack(checker->stacks->a);
+	print_stack(ps->stacks->a);
 	printf("\nB STCK AFTER EXEC\n\n");
-	print_stack(checker->stacks->b);
+	print_stack(ps->stacks->b);
 }

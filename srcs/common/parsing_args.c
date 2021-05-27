@@ -6,20 +6,20 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:15:43 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:42:31 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 16:39:59 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/include.h"
+#include "../../includes/push_swap.h"
 
-int		*free_and_ret(int **arr)
+static int		*free_and_ret(int **arr)
 {
 	free(*arr);
 	*arr = NULL;
 	return (*arr);
 }
 
-int		ft_strarr_len(char **arr)
+int				ft_strarr_len(char **arr)
 {
 	int i;
 
@@ -32,7 +32,7 @@ int		ft_strarr_len(char **arr)
 	return (i);
 }
 
-int		*str_array_to_int_array(char **src, int size)
+int				*str_array_to_int_array(char **src, int size)
 {
 	long long	new_element;
 	int			*arr;
