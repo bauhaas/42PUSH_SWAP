@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:28:36 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 18:35:45 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:53:55 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_valid_char_arr_format(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i])
@@ -26,7 +26,7 @@ void	print_valid_char_arr_format(char **arr)
 
 void	print_av(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	printf("total ac : %d\n", ac);

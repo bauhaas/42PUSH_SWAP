@@ -6,14 +6,14 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:20:19 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 18:21:02 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:48:07 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 #include "../../libft/libft.h"
 
-int			main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_ps	ps;
 

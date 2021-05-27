@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 20:58:15 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 17:37:20 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:46:09 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** end of our B stack and then put it to head and push it back to A.
 */
 
-static void		put_select_id_on_top_and_push(t_ps *ps, int id, int size)
+static void	put_select_id_on_top_and_push(t_ps *ps, int id, int size)
 {
 	if (id < size / 2)
 		while (id--)
@@ -36,7 +36,7 @@ static void		put_select_id_on_top_and_push(t_ps *ps, int id, int size)
 ** fully cleared B.
 */
 
-static void		selection_sort_remix(t_ps *ps, t_stacks *stacks)
+static void	selection_sort_remix(t_ps *ps, t_stacks *stacks)
 {
 	int	size;
 	int	id_to_push;
@@ -67,9 +67,9 @@ static void		selection_sort_remix(t_ps *ps, t_stacks *stacks)
 ** sent as parameter.
 */
 
-static int		has_value_under_pivot_value(t_stack *stack, int pivot)
+static int	has_value_under_pivot_value(t_stack *stack, int pivot)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = stack;
 	while (tmp)
@@ -91,12 +91,11 @@ static int		has_value_under_pivot_value(t_stack *stack, int pivot)
 ** id_limit on the next block.
 */
 
-static int		partition(t_ps *ps, int id_limit, int pivot, int size)
+static int	partition(t_ps *ps, int id_limit, int pivot, int size)
 {
-	int	size_max;
-
 	size = stack_size(ps->stacks->a) - id_limit;
 	while (ps->stacks->a && id_limit--)
+	{
 		if (ps->stacks->a->i <= pivot)
 			push_stack(ps, &ps->stacks->a, &ps->stacks->b, "pb");
 		else
@@ -105,14 +104,15 @@ static int		partition(t_ps *ps, int id_limit, int pivot, int size)
 				break ;
 			rotate_stack(ps, &ps->stacks->a, "ra");
 		}
-	size_max = stack_size(ps->stacks->a);
-	if (size < size_max)
+	}
+	ps->partition_size_max = stack_size(ps->stacks->a);
+	if (size < ps->partition_size_max)
 	{
-		if (size < size_max / 2)
+		if (size < ps->partition_size_max / 2)
 			while (size--)
 				rotate_stack(ps, &ps->stacks->a, "ra");
 		else
-			while (size++ < size_max)
+			while (size++ < ps->partition_size_max)
 				reverse_rotate_stack(ps, &ps->stacks->a, "rra");
 	}
 	size = stack_size(ps->stacks->b);
@@ -131,12 +131,12 @@ static int		partition(t_ps *ps, int id_limit, int pivot, int size)
 ** the new index_limit
 */
 
-void			sort(t_ps *ps, t_stacks *stacks, int divide_block_size)
+void	sort(t_ps *ps, t_stacks *stacks, int divide_block_size)
 {
 	int	size;
 	int	total_block;
 	int	curr_block;
-	int pivot;
+	int	pivot;
 	int	id_limit;
 
 	size = stack_size(stacks->a);

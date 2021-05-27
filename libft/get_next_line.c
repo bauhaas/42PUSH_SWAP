@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 13:07:08 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:28:27 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:19:37 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static char	*store_leftover(char *str, int i, int j)
 	return (dest);
 }
 
-int			get_next_line(const int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
 	static char		*leftover;
 	char			buf[BUFFER_SIZE + 1];
@@ -104,6 +104,8 @@ int			get_next_line(const int fd, char **line)
 	}
 	*line = grep_line(leftover);
 	leftover = store_leftover(leftover, 0, 0);
-	ret = (ret == 0 && ft_strlen(leftover) == 0) ? 0 : 1;
+	ret = 1;
+	if (ret == 0 && ft_strlen(leftover) == 0)
+		ret = 0;
 	return (ret);
 }

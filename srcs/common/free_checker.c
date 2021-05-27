@@ -6,13 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:50:28 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 16:36:55 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:53:25 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void			free_list(void *content)
+static void	free_list(void *content)
 {
 	char	*e;
 
@@ -20,7 +20,7 @@ static void			free_list(void *content)
 	ft_strdel(&e);
 }
 
-static void			free_stack(t_stack *stack)
+static void	free_stack(t_stack *stack)
 {
 	t_stack		*ptr_list;
 	t_stack		*ptr_next;
@@ -35,7 +35,7 @@ static void			free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-void				free_ps(t_ps *ps)
+void	free_ps(t_ps *ps)
 {
 	ft_free_strs(&ps->expanded_params);
 	ft_lstclear(&ps->head_cmd, &free_list);

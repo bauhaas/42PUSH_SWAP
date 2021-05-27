@@ -6,15 +6,15 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 17:58:48 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/12 19:37:30 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:56:04 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isnumb(char *num)
+int	ft_isnumb(char *num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (num[i] != '\0')

@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 22:52:12 by bahaas            #+#    #+#             */
-/*   Updated: 2020/11/17 16:15:07 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:55:51 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t src_length;
-	size_t dst_length;
+	size_t	i;
+	size_t	src_length;
+	size_t	dst_length;
 
 	i = 0;
 	src_length = ft_strlen(src);

@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:23:38 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 18:17:17 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:47:00 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** If we are on the last block to sort, then we return max value.
 */
 
-int		select_pivot(t_stacks stacks, int index, int division)
+int	select_pivot(t_stacks stacks, int index, int division)
 {
 	int	max;
 	int	min;
@@ -33,7 +33,7 @@ int		select_pivot(t_stacks stacks, int index, int division)
 ** Return the index of the valued we picked to be sent back to A.
 */
 
-int		select_id_to_push(int id_of_smallest, int id_of_biggest, int size)
+int	select_id_to_push(int id_of_smallest, int id_of_biggest, int size)
 {
 	int	total_cmd_to_push_small;
 	int	total_cmd_to_push_big;
@@ -55,7 +55,7 @@ int		select_id_to_push(int id_of_smallest, int id_of_biggest, int size)
 ** Return smallest value in stack.
 */
 
-int		select_min(t_stack *stack)
+int	select_min(t_stack *stack)
 {
 	int	min;
 
@@ -75,7 +75,7 @@ int		select_min(t_stack *stack)
 ** Return biggest value in stack.
 */
 
-int		select_max(t_stack *stack)
+int	select_max(t_stack *stack)
 {
 	int	max;
 
@@ -95,7 +95,7 @@ int		select_max(t_stack *stack)
 ** Return index of the picked value in stack.
 */
 
-int		select_id(t_stack *stack, int value)
+int	select_id(t_stack *stack, int value)
 {
 	int	i;
 

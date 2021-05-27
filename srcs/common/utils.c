@@ -6,13 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:58:33 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 16:04:57 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:53:11 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int			stack_size(t_stack *head)
+int	stack_size(t_stack *head)
 {
 	int		i;
 	t_stack	*list;
@@ -29,20 +29,20 @@ int			stack_size(t_stack *head)
 	return (i);
 }
 
-int			is_error(void)
+int	is_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	return (0);
 }
 
-int			is_empty(t_stack *stack)
+int	is_empty(t_stack *stack)
 {
 	if (!stack)
 		return (1);
 	return (0);
 }
 
-int			is_sort(t_stack *stack)
+int	is_sort(t_stack *stack)
 {
 	t_stack	*tmp;
 	int		i;
@@ -58,10 +58,10 @@ int			is_sort(t_stack *stack)
 	return (1);
 }
 
-int			has_duplicates(int *arr, int size)
+int	has_duplicates(int *arr, int size)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

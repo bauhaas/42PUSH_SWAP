@@ -6,33 +6,33 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:31:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 16:34:10 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:51:33 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int		is_valid_cmd(char *line)
+static int	is_valid_cmd(char *line)
 {
-	if (!ft_strcmp(line, "sa") ||
-			!ft_strcmp(line, "sb") ||
-			!ft_strcmp(line, "ss") ||
-			!ft_strcmp(line, "pa") ||
-			!ft_strcmp(line, "pb") ||
-			!ft_strcmp(line, "ra") ||
-			!ft_strcmp(line, "rb") ||
-			!ft_strcmp(line, "rr") ||
-			!ft_strcmp(line, "rra") ||
-			!ft_strcmp(line, "rrb") ||
-			!ft_strcmp(line, "rrr"))
+	if (!ft_strcmp(line, "sa")
+		|| !ft_strcmp(line, "sb")
+		|| !ft_strcmp(line, "ss")
+		|| !ft_strcmp(line, "pa")
+		|| !ft_strcmp(line, "pb")
+		|| !ft_strcmp(line, "ra")
+		|| !ft_strcmp(line, "rb")
+		|| !ft_strcmp(line, "rr")
+		|| !ft_strcmp(line, "rra")
+		|| !ft_strcmp(line, "rrb")
+		|| !ft_strcmp(line, "rrr"))
 		return (1);
 	return (0);
 }
 
-void			create_cmd(t_list **lst, char *line)
+void	create_cmd(t_list **lst, char *line)
 {
-	t_list *new;
-	t_list *tmp;
+	t_list	*new;
+	t_list	*tmp;
 
 	tmp = *lst;
 	new = ft_memalloc(sizeof(t_list));
@@ -47,9 +47,9 @@ void			create_cmd(t_list **lst, char *line)
 	}
 }
 
-int				save_user_cmd(t_ps *ps)
+int	save_user_cmd(t_ps *ps)
 {
-	char *line;
+	char	*line;
 
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
@@ -70,17 +70,17 @@ int				save_user_cmd(t_ps *ps)
 	return (1);
 }
 
-static int		is_cmd_linked(char *cmd, t_list *next, char *b, char *a)
+static int	is_cmd_linked(char *cmd, t_list *next, char *b, char *a)
 {
-	if ((!ft_strcmp(cmd, a) && (next && !ft_strcmp(next->content, b))) ||
-	((!ft_strcmp(cmd, b) && (next && !ft_strcmp(next->content, a)))))
+	if ((!ft_strcmp(cmd, a) && (next && !ft_strcmp(next->content, b)))
+		|| ((!ft_strcmp(cmd, b) && (next && !ft_strcmp(next->content, a)))))
 		return (1);
 	return (0);
 }
 
-void			optimize_cmd_lst(t_ps *ps)
+void	optimize_cmd_lst(t_ps *ps)
 {
-	t_list *old;
+	t_list	*old;
 
 	old = ps->cmd;
 	while (old)

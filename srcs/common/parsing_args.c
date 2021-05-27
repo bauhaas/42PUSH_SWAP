@@ -6,22 +6,22 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:15:43 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 16:39:59 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:52:40 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int		*free_and_ret(int **arr)
+static int	*free_and_ret(int **arr)
 {
 	free(*arr);
 	*arr = NULL;
 	return (*arr);
 }
 
-int				ft_strarr_len(char **arr)
+int	ft_strarr_len(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arr)
@@ -32,7 +32,7 @@ int				ft_strarr_len(char **arr)
 	return (i);
 }
 
-int				*str_array_to_int_array(char **src, int size)
+int	*str_array_to_int_array(char **src, int size)
 {
 	long long	new_element;
 	int			*arr;

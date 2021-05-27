@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 19:15:04 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 18:49:36 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:47:43 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** Select the most efficient algorithm based on the initial size of stack A.
 */
 
-static void		select_algo(t_ps *ps)
+static void	select_algo(t_ps *ps)
 {
-	int size;
+	int	size;
 
 	size = stack_size(ps->stacks->a);
 	if (size == 1)
@@ -37,9 +37,9 @@ static void		select_algo(t_ps *ps)
 		return ;
 }
 
-int				main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_ps ps;
+	t_ps	ps;
 
 	ps.cmd = NULL;
 	if (ac == 1)

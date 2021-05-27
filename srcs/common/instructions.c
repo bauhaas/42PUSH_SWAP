@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:08:46 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 01:30:51 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:54:12 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap_stack(t_ps *ps, int *i, int *j, char *cmd)
 {
-	int tmp;
+	int	tmp;
 
 	if ((!i || !j) || (!*i || !*j))
 		return ;
@@ -27,8 +27,8 @@ void	swap_stack(t_ps *ps, int *i, int *j, char *cmd)
 
 void	push_stack(t_ps *ps, t_stack **from, t_stack **to, char *cmd)
 {
-	t_stack *new;
-	t_stack *tmp;
+	t_stack	*new;
+	t_stack	*tmp;
 
 	if (!from || !(*from))
 		return ;
@@ -44,8 +44,8 @@ void	push_stack(t_ps *ps, t_stack **from, t_stack **to, char *cmd)
 
 void	rotate_stack(t_ps *ps, t_stack **stack, char *cmd)
 {
-	t_stack *current;
-	t_stack *tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	current = *stack;
 	if (current == NULL)

@@ -6,36 +6,33 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:23:48 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 17:11:43 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:21:42 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 # include "../libft/libft.h"
 
-typedef struct		s_stack
+typedef struct s_stack
 {
 	int				i;
 	struct s_stack	*next;
 }					t_stack;
 
-typedef struct		s_stacks
+typedef struct s_stacks
 {
 	t_stack			*a;
 	t_stack			*b;
 }					t_stacks;
 
-typedef struct		s_ps
+typedef struct s_ps
 {
 	t_list			*cmd;
 	t_list			*head_cmd;
 	t_stacks		*stacks;
+	int				partition_size_max;
 	char			**expanded_params;
 	int				*arr;
 	int				tot_params;
@@ -59,7 +56,7 @@ void				sort(t_ps *ps, t_stacks *stacks, int divide_size);
 
 int					select_pivot(t_stacks stacks, int index, int division);
 int					select_id_to_push(int id_of_smallest, int id_of_biggest,
-					int size);
+						int size);
 int					select_min(t_stack *item);
 int					select_max(t_stack *item);
 int					select_id(t_stack *item, int nbr);
@@ -82,7 +79,7 @@ void				set_stack_a(t_ps *ps, int *arr, int size);
 
 void				swap_stack(t_ps *ps, int *i, int *j, char *cmd);
 void				push_stack(t_ps *ps, t_stack **from, t_stack **to,
-					char *cmd);
+						char *cmd);
 void				rotate_stack(t_ps *ps, t_stack **stack, char *cmd);
 void				reverse_rotate_stack(t_ps *ps, t_stack **stack, char *cmd);
 

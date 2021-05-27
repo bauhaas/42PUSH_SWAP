@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 10:46:26 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:27:28 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:22:28 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <string.h>
+# include <stdio.h>
 # include <ctype.h>
+# include <limits.h>
 
 # define MAX_FD 256
 # define BUFFER_SIZE 32
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void				*content;
 	struct s_list		*next;
@@ -75,8 +77,8 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *)
-				, void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 
 int				get_next_line(int fd, char **line);
 int				ft_atoi_base(char *str, char *base);

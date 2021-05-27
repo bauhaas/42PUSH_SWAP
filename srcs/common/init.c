@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 01:22:57 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 19:27:56 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:23:56 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	parse_parameters(t_ps *ps, char **av, int split_i)
 	}
 }
 
-void		init_ps(t_ps *ps, char **av)
+void	init_ps(t_ps *ps, char **av)
 {
 	ps->stacks = malloc(sizeof(t_stacks));
 	ps->stacks->a = NULL;
@@ -64,7 +64,6 @@ void		init_ps(t_ps *ps, char **av)
 	ps->tot_params = ft_strarr_len(ps->expanded_params);
 	ps->arr = str_array_to_int_array(ps->expanded_params,
 			ps->tot_params);
-	print_valid_char_arr_format(ps->expanded_params);
 	ps->head_cmd = NULL;
 	ps->cmd = NULL;
 }

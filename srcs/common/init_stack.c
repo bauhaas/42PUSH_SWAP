@@ -6,15 +6,15 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 01:36:11 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/25 02:09:23 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:53:43 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_stack		*new_stack(int value)
+t_stack	*new_stack(int value)
 {
-	t_stack *new_stack;
+	t_stack	*new_stack;
 
 	new_stack = malloc(sizeof(t_stack));
 	if (!new_stack)
@@ -27,10 +27,10 @@ t_stack		*new_stack(int value)
 	return (new_stack);
 }
 
-void		fill_stack_a(t_stack **stack, int value)
+void	fill_stack_a(t_stack **stack, int value)
 {
-	t_stack *new;
-	t_stack *tmp;
+	t_stack	*new;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	new = NULL;
@@ -50,7 +50,7 @@ void		fill_stack_a(t_stack **stack, int value)
 	}
 }
 
-void		set_stack_a(t_ps *ps, int *arr, int size)
+void	set_stack_a(t_ps *ps, int *arr, int size)
 {
 	t_stack	*new;
 	int		i;

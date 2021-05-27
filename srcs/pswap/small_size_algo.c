@@ -6,24 +6,24 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 17:09:07 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 18:19:22 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:41:13 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void		two_elements(t_ps *ps)
+void	two_elements(t_ps *ps)
 {
 	if (ps->stacks->a->i > ps->stacks->a->next->i)
 		swap_stack(ps, &ps->stacks->a->i,
-				&ps->stacks->a->next->i, "sa");
+			&ps->stacks->a->next->i, "sa");
 }
 
-void		three_elements(t_ps *ps)
+void	three_elements(t_ps *ps)
 {
-	t_stack *first;
-	t_stack *secnd;
-	t_stack *third;
+	t_stack	*first;
+	t_stack	*secnd;
+	t_stack	*third;
 
 	first = ps->stacks->a;
 	secnd = ps->stacks->a->next;
@@ -55,7 +55,7 @@ void		three_elements(t_ps *ps)
 static void	put_smallest_on_top(t_ps *ps, t_stack **head, int pos)
 {
 	int		size;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *head;
 	size = stack_size(tmp);
@@ -79,7 +79,7 @@ static void	put_smallest_on_top(t_ps *ps, t_stack **head, int pos)
 ** on B stack.
 */
 
-void		five_elements(t_ps *ps)
+void	five_elements(t_ps *ps)
 {
 	int	size;
 	int	pos;

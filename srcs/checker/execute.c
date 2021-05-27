@@ -6,13 +6,13 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 03:02:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 16:15:04 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 19:48:41 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void		select_swap(t_ps *ps, t_stacks *stacks, char *cmd)
+static void	select_swap(t_ps *ps, t_stacks *stacks, char *cmd)
 {
 	if (!ft_strcmp(cmd, "sa"))
 		swap_stack(ps, &stacks->a->i, &stacks->a->next->i, 0);
@@ -25,7 +25,7 @@ static void		select_swap(t_ps *ps, t_stacks *stacks, char *cmd)
 	}
 }
 
-static void		select_push(t_ps *ps, char *cmd)
+static void	select_push(t_ps *ps, char *cmd)
 {
 	if (!ft_strcmp(cmd, "pa"))
 		push_stack(ps, &ps->stacks->b, &ps->stacks->a, 0);
@@ -33,7 +33,7 @@ static void		select_push(t_ps *ps, char *cmd)
 		push_stack(ps, &ps->stacks->a, &ps->stacks->b, 0);
 }
 
-static void		select_rotate(t_ps *ps, char *cmd)
+static void	select_rotate(t_ps *ps, char *cmd)
 {
 	if (!ft_strcmp(cmd, "ra"))
 		rotate_stack(ps, &ps->stacks->a, 0);
@@ -46,7 +46,7 @@ static void		select_rotate(t_ps *ps, char *cmd)
 	}
 }
 
-static void		select_rev_rotate(t_ps *ps, char *cmd)
+static void	select_rev_rotate(t_ps *ps, char *cmd)
 {
 	if (!ft_strcmp(cmd, "rra"))
 		reverse_rotate_stack(ps, &ps->stacks->a, 0);
@@ -59,9 +59,9 @@ static void		select_rev_rotate(t_ps *ps, char *cmd)
 	}
 }
 
-void			execute(t_ps *ps)
+void	execute(t_ps *ps)
 {
-	char *cmd;
+	char	*cmd;
 
 	if (ps->cmd)
 	{
