@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 02:50:28 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 19:53:25 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:54:26 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ static void	free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-void	free_ps(t_ps *ps)
+void	free_ps(t_ps *ps, int is_checker)
 {
 	ft_free_strs(&ps->expanded_params);
 	ft_lstclear(&ps->head_cmd, &free_list);
-	ft_lstclear(&ps->cmd, &free_list);
+	if (!is_checker)
+		ft_lstclear(&ps->cmd, &free_list);
 	free(ps->arr);
 	free_stack(ps->stacks->a);
 	free_stack(ps->stacks->b);

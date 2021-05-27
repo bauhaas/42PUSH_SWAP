@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 19:15:04 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 19:47:43 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 21:04:12 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ int	main(int ac, char **av)
 	init_ps(&ps, av);
 	if (has_duplicates(ps.arr, ps.tot_params) || ps.arr == NULL)
 	{
-		free_ps(&ps);
+		free_ps(&ps, 0);
 		return (is_error());
 	}
 	set_stack_a(&ps, ps.arr, ps.tot_params);
 	if (is_sort(ps.stacks->a))
 	{
-		free_ps(&ps);
+		free_ps(&ps, 0);
 		return (0);
 	}
 	select_algo(&ps);
 	optimize_cmd_lst(&ps);
 	print_cmd_lst(ps.head_cmd);
-	free_ps(&ps);
+	free_ps(&ps, 0);
 	return (0);
 }

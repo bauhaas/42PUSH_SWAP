@@ -6,12 +6,18 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:20:19 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 19:48:07 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:56:50 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 #include "../../libft/libft.h"
+
+static int	free_return_error(t_ps *ps)
+{
+	free_ps(ps, 1);
+	return (is_error());
+}
 
 int	main(int ac, char **av)
 {
@@ -21,14 +27,11 @@ int	main(int ac, char **av)
 		return (0);
 	init_ps(&ps, av);
 	if (has_duplicates(ps.arr, ps.tot_params) || ps.arr == NULL)
-	{
-		free_ps(&ps);
-		return (is_error());
-	}
+		return (free_return_error(&ps));
 	if (!save_user_cmd(&ps))
 	{
-		free_ps(&ps);
-		return (is_error());
+		if (ps.cmd == NULL)
+			return (free_return_error(&ps));
 	}
 	set_stack_a(&ps, ps.arr, ps.tot_params);
 	execute(&ps);
@@ -36,6 +39,6 @@ int	main(int ac, char **av)
 		printf("OK\n");
 	else
 		printf("KO\n");
-	free_ps(&ps);
+	free_ps(&ps, 1);
 	return (0);
 }

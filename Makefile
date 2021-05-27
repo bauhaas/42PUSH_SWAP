@@ -6,7 +6,7 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 15:07:09 by bahaas            #+#    #+#              #
-#    Updated: 2021/05/27 20:35:57 by bahaas           ###   ########.fr        #
+#    Updated: 2021/05/27 20:43:14 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,7 @@ COMMON_SRCS =	srcs/common/utils.c					\
 	
 CC				= clang
 
-#CFLAGS			= -Wextra -Werror -Wall -g
-CFLAGS			= -g
+CFLAGS			= -Wextra -Werror -Wall -g
 
 HEADER			= -I /includes
 

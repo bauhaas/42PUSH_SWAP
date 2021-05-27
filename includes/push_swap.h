@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:23:48 by bahaas            #+#    #+#             */
-/*   Updated: 2021/05/27 20:21:42 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/05/27 20:45:45 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void				create_cmd(t_list **list, char *line);
 int					save_user_cmd(t_ps *ps);
 void				optimize_cmd_lst(t_ps *ps);
 
-void				free_ps(t_ps *ps);
+void				free_ps(t_ps *ps, int is_checker);
 
 void				init_ps(t_ps *ps, char **av);
 
