@@ -6,7 +6,7 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/17 13:18:59 by bahaas            #+#    #+#              #
-#    Updated: 2021/05/12 19:22:56 by bahaas           ###   ########.fr        #
+#    Updated: 2021/05/27 20:35:48 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ RM			= rm -f
 OBJS		= ${SRCS:.c=.o}
 
 .c.o:
-			@printf "\033[34m[LIBFT]\033[0m Generating libft objects... %-33.33s\r" $@
+	@printf "\033[34m[LIBFT]\033[0m Generating libft .o files: \033[32mOK\033[0m%-33.33s\r"
 			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}

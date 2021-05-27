@@ -6,7 +6,7 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/04 15:07:09 by bahaas            #+#    #+#              #
-#    Updated: 2021/05/27 18:33:07 by bahaas           ###   ########.fr        #
+#    Updated: 2021/05/27 20:35:57 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ PSWAP_OBJS		= ${PSWAP_SRCS:.c=.o}
 COMMON_OBJS		= ${COMMON_SRCS:.c=.o}
 
 .c.o:
-			@printf "\033[34m[PUSH_SWAP]\033[0m Generating objects... %-33.33s\r\033[0m" $@
+	@printf "\033[34m[PUSH_SWAP]\033[0m Generating .o files: \033[32mOK\033[0m%-33.33s\r\033[0m"
 			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.c=.o}
 
 all: 		checker push_swap
